@@ -1,0 +1,21 @@
+[Unit]
+Description=Whatsapp Api
+[Service]
+Environment=PORT=5000
+Environment=MAX_ATTACHMENT_SIZE=10000000
+Environment=SET_MESSAGES_AS_SEEN=FALSE
+
+Environment=WEB_VERSION_CACHE_TYPE=REMOTE
+Environment=BASE_WEBHOOK_URL=http://localhost:3000/localCallbackExample
+Environment=ENABLE_LOCAL_CALLBACK_EXAMPLE=TRUE
+Environment=DISABLED_CALLBACKS='message_ack|message_reaction'
+Environment=ENABLE_SWAGGER_ENDPOINT=TRUE
+Environment=SESSIONS_PATH=/mnt/dietpi_userdata/whatsapp-api/sessions
+
+Type=simple
+Restart=always
+WorkingDirectory=/mnt/dietpi_userdata/whatsapp-api
+ExecStart=/usr/bin/npm run start
+
+[Install]
+WantedBy=multi-user.target
