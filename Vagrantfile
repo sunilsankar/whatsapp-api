@@ -5,7 +5,7 @@ Vagrant.configure("2") do |config|
   # Whatsapp vm
   config.vm.define "whatsapp" do |node|
     node.vm.hostname = "whatsapp"
-    node.vm.box = "generic/debian10"
+    node.vm.box = "generic/ubuntu2204"
     node.vm.box_check_update = false
 ##### Insert key false ###    
     node.ssh.insert_key = false
